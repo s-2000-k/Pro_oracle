@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
-<!-- Active URL: https://ondras.zarovi.cz/sql/demo/ -->
 <sql>
 <datatypes db="mysql">
 	<group label="Numeric" color="rgb(238,238,170)">
@@ -155,15 +153,18 @@
 <row name="Information about action" null="0" autoincrement="0">
 <datatype>MEDIUMTEXT(500)</datatype>
 </row>
+<row name="Service data" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Service data" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>Type of operation action</part>
+<part>Service data</part>
 </key>
 </table>
-<table x="767" y="608" name="Service data">
+<table x="829" y="595" name="Service data">
 <row name="id" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
-<relation table="Type of technical action" row="Service data" />
-<relation table="Type of operation action" row="End of a trip" />
 </row>
 <row name="Date/time" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
@@ -196,7 +197,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="477" y="494" name="Diagnosis">
+<table x="571" y="483" name="Diagnosis">
 <row name="Type of diagnosis" null="0" autoincrement="0">
 <datatype>MEDIUMTEXT(30)</datatype>
 <relation table="Type of technical action" row="Diagnosis" />
@@ -218,6 +219,7 @@
 <row name="Technical action" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <relation table="Type of technical action" row="Technical action" />
+<relation table="Technical action" row="id" />
 </row>
 <row name="Date/time end of action" null="0" autoincrement="0">
 <datatype>DATETIME</datatype>
@@ -249,7 +251,8 @@
 </row>
 <row name="Service data" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default></row>
+<default>NULL</default><relation table="Service data" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 <part>Diagnosis</part>
@@ -275,7 +278,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="14" y="470" name="Type of operation action">
+<table x="64" y="528" name="Type of operation action">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="Operation action" row="Type of operation action" />
@@ -294,13 +297,11 @@
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
-<part>End of a trip</part>
 </key>
 </table>
 <table x="882" y="145" name="Technical action">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
-<relation table="Type of technical action" row="Technical action" />
 </row>
 <row name="Repair" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
