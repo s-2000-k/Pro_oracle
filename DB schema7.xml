@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
+<!-- Active URL: https://ondras.zarovi.cz/sql/demo/ -->
+<sql>
+<datatypes db="mysql">
+	<group label="Numeric" color="rgb(238,238,170)">
+		<type label="Integer" length="0" sql="INTEGER" quote=""/>
+	 	<type label="TINYINT" length="0" sql="TINYINT" quote=""/>
+	 	<type label="SMALLINT" length="0" sql="SMALLINT" quote=""/>
+	 	<type label="MEDIUMINT" length="0" sql="MEDIUMINT" quote=""/>
+	 	<type label="INT" length="0" sql="INT" quote=""/>
+		<type label="BIGINT" length="0" sql="BIGINT" quote=""/>
+		<type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
+		<type label="Single precision" length="0" sql="FLOAT" quote=""/>
+		<type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
+	</group>
+
+	<group label="Character" color="rgb(255,200,200)">
+		<type label="Char" length="1" sql="CHAR" quote="'"/>
+		<type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
+		<type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
+		<type label="Binary" length="1" sql="BINARY" quote="'"/>
+		<type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
+		<type label="BLOB" length="0" sql="BLOB" re="BLOB" quote="'"/>
+	</group>
+
+	<group label="Date &amp; Time" color="rgb(200,255,200)">
+		<type label="Date" length="0" sql="DATE" quote="'"/>
+		<type label="Time" length="0" sql="TIME" quote="'"/>
+		<type label="Datetime" length="0" sql="DATETIME" quote="'"/>
+		<type label="Year" length="0" sql="YEAR" quote=""/>
+		<type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
+	</group>
+	
+	<group label="Miscellaneous" color="rgb(200,200,255)">
+		<type label="ENUM" length="1" sql="ENUM" quote=""/>
+		<type label="SET" length="1" sql="SET" quote=""/>
+		<type label="Bit" length="0" sql="bit" quote=""/>
+	</group>
+</datatypes><table x="11" y="175" name="Drivers">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="Family" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT(20)</datatype>
+</row>
+<row name="Name" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT(20)</datatype>
+</row>
+<row name="Patronymic" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT(20)</datatype>
+</row>
+<row name="Address" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+</row>
+<row name="Phone" null="1" autoincrement="0">
+<datatype>INTEGER(15)</datatype>
+<default>NULL</default></row>
+<row name="Number of driver's license" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT(20)</datatype>
+</row>
+<row name="Operation action" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="INDEX" name="">
+<part>Family</part>
+<part>Operation action</part>
+</key>
+<key type="PRIMARY" name="">
+<part>id</part>
+<part>Operation action</part>
+</key>
+<key type="INDEX" name="">
+<part>Family</part>
+</key>
+</table>
+<table x="533" y="28" name="New action">
+<row name="Type of new action" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Drivers" row="id" />
+<relation table="Vehicles" row="id" />
+</row>
+<row name="Date/time of action" null="0" autoincrement="0">
+<datatype>DATETIME</datatype>
+</row>
+<row name="Information about action" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT(500)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>Type of new action</part>
+</key>
+</table>
+<table x="407" y="135" name="Vehicles">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="Vehicle type" null="0" autoincrement="0">
+<datatype>CHAR(20)</datatype>
+</row>
+<row name="Manufacture of vehicle" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT(20)</datatype>
+</row>
+<row name="Model of vehicle" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT(20)</datatype>
+</row>
+<row name="State serial number" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT(10)</datatype>
+</row>
+<row name="Number of vehicle's passport" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT(10)</datatype>
+</row>
+<row name="Number of vehicle's document" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT(10)</datatype>
+</row>
+<row name="Engine value, l." null="0" autoincrement="0">
+<datatype>INTEGER(10)</datatype>
+</row>
+<row name="Engine power, hp." null="0" autoincrement="0">
+<datatype>INTEGER(10)</datatype>
+</row>
+<row name="Total weight of vehicle, kg" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="Type of transmission" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+</row>
+<row name="Type of suspension" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+</row>
+<row name="Type of brakesystem" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+</row>
+<row name="Type of fuelsystem" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+</row>
+<row name="Type of technical action" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="PRIMARY" name="id_of_vehicle">
+<part>id</part>
+<part>Type of technical action</part>
+</key>
+<key type="INDEX" name="SS_number">
+<part>State serial number</part>
+</key>
+</table>
+<table x="37" y="377" name="Operation action">
+<row name="Type of operation action" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Drivers" row="Operation action" />
+</row>
+<row name="Date/time of action" null="0" autoincrement="0">
+<datatype>DATETIME</datatype>
+</row>
+<row name="Information about action" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT(500)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>Type of operation action</part>
+</key>
+</table>
+<table x="767" y="608" name="Service data">
+<row name="id" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Type of technical action" row="Service data" />
+<relation table="Type of operation action" row="End of a trip" />
+</row>
+<row name="Date/time" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="Fuel consumption, l." null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="Vehicle mileage, km." null="1" autoincrement="0">
+<datatype>INTEGER(7)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1038" y="480" name="Spareparts">
+<row name="id" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Technical action" row="Spareparts" />
+</row>
+<row name="Bying Date/time" null="0" autoincrement="0">
+<datatype>DATETIME</datatype>
+</row>
+<row name="List of spareparts" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT(500)</datatype>
+<default>NULL</default></row>
+<row name="Cost of parts, RR" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="477" y="494" name="Diagnosis">
+<row name="Type of diagnosis" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT(30)</datatype>
+<relation table="Type of technical action" row="Diagnosis" />
+</row>
+<row name="Date/time begin of action" null="0" autoincrement="0">
+<datatype>DATETIME</datatype>
+</row>
+<row name="Date/time end of action" null="0" autoincrement="0">
+<datatype>DATETIME</datatype>
+</row>
+<row name="Results of diagnosis" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT(500)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>Type of diagnosis</part>
+</key>
+</table>
+<table x="915" y="265" name="Technical action">
+<row name="Technical action" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="Type of technical action" row="Technical action" />
+</row>
+<row name="Date/time end of action" null="0" autoincrement="0">
+<datatype>DATETIME</datatype>
+</row>
+<row name="Maintenance operations" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT(500)</datatype>
+</row>
+<row name="Date/time begin of action" null="0" autoincrement="0">
+<datatype>DATETIME</datatype>
+</row>
+<row name="Spareparts" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>Technical action</part>
+<part>Spareparts</part>
+</key>
+</table>
+<table x="852" y="21" name="Type of technical action">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Vehicles" row="Type of technical action" />
+</row>
+<row name="Technical action" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="Diagnosis" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="Service data" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+<part>Diagnosis</part>
+<part>Service data</part>
+<part>Technical action</part>
+</key>
+</table>
+<table x="55" y="25" name="Type of new action">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="New action" row="Type of new action" />
+</row>
+<row name="Vehicles" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="Drivers" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="Another action" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="14" y="470" name="Type of operation action">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Operation action" row="Type of operation action" />
+</row>
+<row name="Medical test" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="Roadcrash" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="Driver's penalty" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="End of a trip" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+<part>End of a trip</part>
+</key>
+</table>
+<table x="882" y="145" name="Technical action">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+<relation table="Type of technical action" row="Technical action" />
+</row>
+<row name="Repair" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="Technical maintenance" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="Capital repair" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+</sql>
